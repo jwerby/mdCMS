@@ -133,6 +133,27 @@ published_date: 2025-01-15
 Your content here...
 ```
 
+## AI Content Guidance
+
+The AI writing pipeline uses a shared guidance layer to improve quality across all prompts
+(write/rewrite/research/SEO/refine/update). It enforces:
+
+- Natural keyword variation (avoid repeated exact phrases)
+- Scannability (short paragraphs, bold key terms)
+- Anchor text (raw URLs are converted to descriptive links)
+- Clear, audience-aligned CTAs
+
+### Hyperlocal Enrichment (Optional)
+
+If a post is geography-specific, the pipeline will recommend local entities and acronyms.
+Add or expand regions in:
+
+```
+context/geo-entities.json
+```
+
+See `docs/content-guidance.md` for details and examples.
+
 ## Publishing Flow
 
 1. Create a new post from the Dashboard (saved to `content/drafts/`)
