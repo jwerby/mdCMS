@@ -1,0 +1,22 @@
+{
+  "siteName": "arrival-mdCMS",
+  "header": {
+    "logo": {
+      "text": "arrival-mdCMS",
+      "href": "/"
+    },
+    "navigation": [
+      { "label": "Home", "href": "/" },
+      { "label": "Blog", "href": "/dashboard" }
+    ],
+    "showDashboardLink": true
+  },
+  "footer": {
+    "copyright": "2025 arrival-mdCMS. All rights reserved.",
+    "links": [
+      { "label": "Privacy Policy", "href": "/privacy" },
+      { "label": "Terms of Service", "href": "/terms" }
+    ],
+    "showPoweredBy": true
+  }
+}

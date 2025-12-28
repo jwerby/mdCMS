@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "enabled": true,
+    "source": "h1",
+    "style": "gradient",
+    "gradient": "from-slate-900 to-indigo-900",
+    "textColor": "white",
+    "includeSubtitle": true,
+    "includeButtons": true,
+    "minHeight": "70vh",
+    "texture": "",
+    "backgroundImage": "",
+    "overlayImage": "/content/images/waves-backround.svg",
+    "overlayOpacity": 0.3
+  },
+  "enhancements": [
+    {
+      "target": "## Our Vision",
+      "type": "card-grid",
+      "includeChildren": true,
+      "columns": 3,
+      "style": "icon-cards",
+      "background": "slate-50",
+      "icons": {
+        "Coworking & Meeting Spaces": "building",
+        "Interactive Gallery Space": "image",
+        "Performance & Event Venue": "music",
+        "Community Garden & Outdoor Area": "leaf",
+        "Podcasting & Recording": "mic",
+        "Wellness Facilities & Programming": "heart",
+        "Community-Led Events & Classes": "users",
+        "Art Studios & Classrooms": "palette",
+        "Commercial Kitchen": "chef-hat"
+      }
+    },
+    {
+      "target": "## How You Can Help",
+      "type": "card-grid",
+      "includeChildren": true,
+      "columns": 4,
+      "style": "action-cards"
+    },
+    {
+      "target": "## We Need Your Support",
+      "type": "cta-banner",
+      "style": "highlight",
+      "background": "indigo-600",
+      "textColor": "white"
+    },
+    {
+      "target": "## Help Shape Arrival",
+      "type": "cta-section",
+      "style": "centered",
+      "background": "slate-900",
+      "textColor": "white",
+      "buttonStyle": "primary"
+    },
+    {
+      "target": "## Be First to Board",
+      "type": "cta-section",
+      "style": "centered",
+      "background": "indigo-600",
+      "textColor": "white",
+      "buttonStyle": "white"
+    }
+  ],
+  "footer": {
+    "copyright": "2025 Arrival - An initiative of 2200VB Foundation",
+    "showContact": true
+  }
+}

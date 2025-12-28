@@ -1,0 +1,17 @@
+{
+  "name": "Arrival VB - Community Content Platform",
+  "description": "Content platform for Virginia Beach's entrepreneurs, creatives, and remote workers. Built on markdown-powered engine.",
+  "requestFramePermissions": [],
+  "author": {
+    "name": "Lisa DeNoia & Jeff Werby",
+    "url": "https://arrivalvb.com"
+  },
+  "keywords": [
+    "Virginia Beach",
+    "coworking",
+    "community hub",
+    "entrepreneurs",
+    "remote work",
+    "ViBe Creative District"
+  ]
+}

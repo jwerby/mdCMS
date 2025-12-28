@@ -1,0 +1,259 @@
+/* Custom fonts - must come before tailwindcss */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+
+@import 'tailwindcss';
+
+/* OpenDyslexic font for accessibility */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic-Regular.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('/fonts/OpenDyslexic-Bold.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== Accessibility CSS Custom Properties ===== */
+:root {
+  /* Font scaling (set via JS) */
+  --a11y-font-scale: 1;
+  --a11y-line-height: 1.6;
+
+  /* Color palette - normal contrast */
+  --a11y-text: #475569;          /* slate-600 */
+  --a11y-text-heading: #1e293b;  /* slate-800 */
+  --a11y-text-muted: #64748b;    /* slate-500 */
+  --a11y-bg: #ffffff;
+  --a11y-bg-subtle: #f8fafc;     /* slate-50 */
+  --a11y-border: #e2e8f0;        /* slate-200 */
+  --a11y-accent: #4f46e5;        /* indigo-600 */
+
+  /* Font family (can be swapped for dyslexia font) */
+  --a11y-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --a11y-font-heading: 'Playfair Display', serif;
+}
+
+/* High contrast mode */
+[data-contrast="high"] {
+  --a11y-text: #0f172a;          /* slate-900 */
+  --a11y-text-heading: #000000;
+  --a11y-text-muted: #334155;    /* slate-700 */
+  --a11y-border: #94a3b8;        /* slate-400 */
+  --a11y-accent: #3730a3;        /* indigo-800 */
+}
+
+/* Dyslexia-friendly font */
+[data-dyslexia-font="true"] {
+  --a11y-font-body: 'OpenDyslexic', 'Comic Sans MS', cursive, sans-serif;
+  --a11y-font-heading: 'OpenDyslexic', 'Comic Sans MS', cursive, sans-serif;
+}
+
+/* Font size scaling */
+[data-font-size="large"] {
+  --a11y-font-scale: 1.15;
+}
+
+[data-font-size="xl"] {
+  --a11y-font-scale: 1.3;
+}
+
+[data-font-size="xxl"] {
+  --a11y-font-scale: 1.5;
+}
+
+/* Line spacing */
+[data-line-spacing="relaxed"] {
+  --a11y-line-height: 1.75;
+}
+
+[data-line-spacing="loose"] {
+  --a11y-line-height: 2.0;
+}
+
+/* Reduced motion */
+[data-reduced-motion="true"] *,
+[data-reduced-motion="true"] *::before,
+[data-reduced-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Base styles */
+body {
+  font-family: var(--a11y-font-body);
+  color: var(--a11y-text);
+  background-color: var(--a11y-bg);
+}
+
+/* Remove default link decorations */
+a {
+  text-decoration: none;
+}
+
+.serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Animation for toasts */
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-in-from-right {
+  animation-name: slide-in-from-right;
+}
+
+/* ===== Screen Reader Only Utility ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Make sr-only content visible on focus (for skip links) */
+.sr-only:focus,
+.sr-only:focus-within,
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background-color: var(--a11y-accent);
+  color: white;
+  font-weight: 600;
+  z-index: 9999;
+}
+
+/* ===== Accessibility Content Scaling ===== */
+
+/* Apply font scaling to main content area based on data attributes */
+[data-font-size="large"] main,
+[data-font-size="large"] article,
+[data-font-size="xl"] main,
+[data-font-size="xl"] article,
+[data-font-size="xxl"] main,
+[data-font-size="xxl"] article {
+  font-size: calc(1rem * var(--a11y-font-scale));
+}
+
+[data-line-spacing="relaxed"] main,
+[data-line-spacing="relaxed"] article,
+[data-line-spacing="loose"] main,
+[data-line-spacing="loose"] article {
+  line-height: var(--a11y-line-height);
+}
+
+/* Scale headings proportionally */
+[data-font-size="large"] main h1,
+[data-font-size="large"] article h1,
+[data-font-size="xl"] main h1,
+[data-font-size="xl"] article h1,
+[data-font-size="xxl"] main h1,
+[data-font-size="xxl"] article h1 {
+  font-size: calc(2.25rem * var(--a11y-font-scale));
+}
+
+[data-font-size="large"] main h2,
+[data-font-size="large"] article h2,
+[data-font-size="xl"] main h2,
+[data-font-size="xl"] article h2,
+[data-font-size="xxl"] main h2,
+[data-font-size="xxl"] article h2 {
+  font-size: calc(1.875rem * var(--a11y-font-scale));
+}
+
+[data-font-size="large"] main h3,
+[data-font-size="large"] article h3,
+[data-font-size="xl"] main h3,
+[data-font-size="xl"] article h3,
+[data-font-size="xxl"] main h3,
+[data-font-size="xxl"] article h3 {
+  font-size: calc(1.5rem * var(--a11y-font-scale));
+}
+
+[data-font-size="large"] main h4,
+[data-font-size="large"] article h4,
+[data-font-size="xl"] main h4,
+[data-font-size="xl"] article h4,
+[data-font-size="xxl"] main h4,
+[data-font-size="xxl"] article h4 {
+  font-size: calc(1.25rem * var(--a11y-font-scale));
+}
+
+/* Scale paragraph and list text */
+[data-font-size="large"] main p,
+[data-font-size="large"] main li,
+[data-font-size="large"] main td,
+[data-font-size="large"] article p,
+[data-font-size="large"] article li,
+[data-font-size="large"] article td,
+[data-font-size="xl"] main p,
+[data-font-size="xl"] main li,
+[data-font-size="xl"] main td,
+[data-font-size="xl"] article p,
+[data-font-size="xl"] article li,
+[data-font-size="xl"] article td,
+[data-font-size="xxl"] main p,
+[data-font-size="xxl"] main li,
+[data-font-size="xxl"] main td,
+[data-font-size="xxl"] article p,
+[data-font-size="xxl"] article li,
+[data-font-size="xxl"] article td {
+  font-size: calc(1rem * var(--a11y-font-scale));
+  line-height: var(--a11y-line-height);
+}
+
+/* Legacy class-based scaling (for specific components) */
+.a11y-content {
+  font-size: calc(1rem * var(--a11y-font-scale));
+  line-height: var(--a11y-line-height);
+}
+
+.a11y-content h1,
+.a11y-content h2,
+.a11y-content h3,
+.a11y-content h4,
+.a11y-content h5,
+.a11y-content h6 {
+  font-family: var(--a11y-font-heading);
+  color: var(--a11y-text-heading);
+}
+
+.a11y-content p,
+.a11y-content li,
+.a11y-content td {
+  color: var(--a11y-text);
+}

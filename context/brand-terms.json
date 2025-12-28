@@ -1,0 +1,23 @@
+{
+  "description": "Brand terms that should be consistently capitalized/formatted throughout content",
+  "terms": {
+    "virginia moca": "Virginia MOCA",
+    "virginia beach": "Virginia Beach",
+    "arrival vb": "Arrival VB",
+    "arrival": "Arrival",
+    "moca": "MOCA",
+    "vb": "VB",
+    "1701": "1701",
+    "metroburb": "Metroburb",
+    "bell works": "Bell Works",
+    "virginia wesleyan": "Virginia Wesleyan",
+    "parks avenue": "Parks Avenue",
+    "chesapeake bay": "Chesapeake Bay"
+  },
+  "exceptions": [
+    "primary_keyword",
+    "secondary_keywords",
+    "url_slug"
+  ],
+  "notes": "Terms are case-insensitive matches. Exceptions list frontmatter fields where lowercase is acceptable for SEO purposes."
+}

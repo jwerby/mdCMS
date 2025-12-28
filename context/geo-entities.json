@@ -1,0 +1,25 @@
+{
+  "virginia beach": {
+    "synonyms": [
+      "vb",
+      "virginia beach, va",
+      "hampton roads",
+      "tidewater"
+    ],
+    "entities": [
+      "Hampton Roads",
+      "Tidewater",
+      "Virginia Beach HIVE",
+      "757 Angels"
+    ],
+    "acronyms": [
+      "BPOL",
+      "SCC",
+      "SWaM"
+    ],
+    "programs": [
+      "Virginia Beach Economic Development",
+      "Hampton Roads Chamber"
+    ]
+  }
+}
